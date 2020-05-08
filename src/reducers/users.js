@@ -1,10 +1,12 @@
 import { ADD_USER, DELETE_USER, EDIT_USER, FETCH_USERS } from "../actions";
+import { wait } from "../components/utils/waitToSave";
 
 const initState = {
   users: []
 };
 
-function storeUsersLocally(data) {
+async function storeUsersLocally(data) {
+  await wait(2000);
   localStorage.setItem("users", JSON.stringify(data));
 }
 

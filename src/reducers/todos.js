@@ -1,10 +1,12 @@
 import { ADD_TODO, DELETE_TODO, EDIT_TODO, FETCH_TODOS } from "../actions";
+import { wait } from "../components/utils/waitToSave";
 
 const initState = {
   todos: []
 };
 
-function storeTodosLocally(data) {
+async function storeTodosLocally(data) {
+  await wait(2000);
   localStorage.setItem("todos", JSON.stringify(data));
 }
 
